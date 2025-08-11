@@ -1,0 +1,18 @@
+<div id="task-list">
+    <h2>Task List</h2>
+    <ul id="tasks"></ul>
+</div>
+class TaskView {
+    constructor() {
+        this.taskList = document.getElementById('tasks');
+    }
+
+    displayTasks(tasks) {
+        this.taskList.innerHTML = ''; // Clear existing tasks
+        tasks.forEach(task => {
+            const taskItem = document.createElement('li');
+            taskItem.textContent = `${task.title} - ${task.completed ? "✓" : "✗"}`;
+            this.taskList.appendChild(taskItem);
+        });
+    }
+}
