@@ -1,0 +1,24 @@
+class Task
+  attr_accessor :task_name
+
+  def initialize(task_name)
+      @task_name = task_name
+  end
+end
+
+class TaskController
+  def create_task(task_name)
+      Task.new(task_name)
+  end
+end
+
+class TaskView
+  def show(task)
+      puts "Task: #{task.task_name}"
+  end
+end
+
+task_controller = TaskController.new
+task = task_controller.create_task("Learn Modern MV Patterns")
+task_view = TaskView.new
+task_view.show(task)
